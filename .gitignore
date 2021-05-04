@@ -1,0 +1,7 @@
+*~
+*.bak
+/node_modules
+/dist/*
+!/dist/.keep
+/.yarn/*
+/web-ext-artifacts/*

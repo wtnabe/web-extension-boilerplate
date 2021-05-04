@@ -1,0 +1,24 @@
+{
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.46.0",
+    "rollup-plugin-chrome-extension": "^3.5.6",
+    "web-ext": "^6.1.0"
+  },
+  "scripts": {
+    "clean": "rimraf ./dist/*",
+    "build": "npm-run-all -s clean build:rollup build:web-ext",
+    "build:rollup": "rollup -c",
+    "build:web-ext": "web-ext build --overwrite-dest -s dist",
+    "dev": "npm-run-all -p dev:*",
+    "dev:rollup": "rollup -c -w",
+    "dev:web-ext": "web-ext run --no-reload -s dist -t chromium --chromium-profile <path-to-profile>",
+    "lint": "web-ext lint",
+    "docs": "web-ext docs",
+    "sign": "web-ext sign -s dist"
+  }
+}
